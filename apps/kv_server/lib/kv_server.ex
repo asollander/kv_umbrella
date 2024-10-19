@@ -16,18 +16,23 @@ defmodule KVServer do
       :gen_tcp.listen(port, [:binary, packet: :line, active: false, reuseaddr: true])
 
     Logger.info("Accepting connections on port #{port}")
+    Logger.info("socket: #{inspect(socket)}")
     loop_acceptor(socket)
   end
 
   defp loop_acceptor(socket) do
     {:ok, client} = :gen_tcp.accept(socket)
-    serve(client)
+    Logger.info("client: #{inspect(client)}")
+    {:ok, pid} = Task.Supervisor.start_child(KVServer.TaskSupervisor, fn -> serve(client) end)
+    IO.inspect(inspect(pid), label: "New Task for serving")
+    :ok = :gen_tcp.controlling_process(client, pid)
     loop_acceptor(socket)
   end
 
   defp serve(socket) do
     socket
     |> read_line()
+    |> IO.inspect(label: "A line")
     |> write_line(socket)
 
     serve(socket)
