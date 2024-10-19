@@ -14,7 +14,7 @@ defmodule KvUmbrella.MixProject do
       # homepage_url: "http://YOUR_PROJECT_HOMEPAGE",
       docs: [
         # The main page in the docs
-        main: "KvUmbrella",
+        main: "KV.Bucket",
         # logo: "path/to/logo.png",
         extras: ["README.md"]
       ]
