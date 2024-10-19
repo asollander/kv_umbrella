@@ -2,7 +2,9 @@ defmodule KV.Bucket do
   use Agent, restart: :temporary
   # If they crash, regardless of the reason, they should not be restarted.
   # This is achieved with restart: :temporary
-
+  @moduledoc """
+  This is the module documentation for `KV.Bucket`
+  """
 
   @doc """
   Starts a new bucket.
