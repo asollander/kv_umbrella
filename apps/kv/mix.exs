@@ -5,10 +5,12 @@ defmodule KV.MixProject do
     [
       app: :kv,
       version: "0.1.0",
-      elixir: "~> 1.17",
+      build_path: "../../_build",
+      config_path: "../../config/config.exs",
+      deps_path: "../../deps",
+      lockfile: "../../mix.lock",      elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
-      deps: deps(),
-      compilers: [:leex, :yecc| Mix.compilers()]
+      deps: deps()
     ]
   end
 
