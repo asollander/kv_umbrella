@@ -30,11 +30,10 @@ defmodule KVServer do
   end
 
   defp serve(socket) do
-
     msg =
       with {:ok, data} <- read_line(socket),
-      {:ok, command} <- KVServer.Command.parse(IO.inspect(data, label: "data")),
-      do: KVServer.Command.run(IO.inspect(command, label: "command"))
+           {:ok, command} <- KVServer.Command.parse(IO.inspect(data, label: "data")),
+           do: KVServer.Command.run(IO.inspect(command, label: "command"))
 
     write_line(socket, msg)
     # Loop again
@@ -51,6 +50,10 @@ defmodule KVServer do
 
   defp write_line(socket, {:error, :unknown_command}) do
     :gen_tcp.send(socket, "UNKNOWN COMMAND\r\n")
+  end
+
+  defp write_line(socket, {:error, :not_found}) do
+    :gen_tcp.send(socket, "NOT FOUND\r\n")
   end
 
   defp write_line(_socket, {:error, :closed}) do
