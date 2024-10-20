@@ -8,7 +8,8 @@ defmodule KV.BucketTest do
 
   # test "store values by key", %{bucket: bucket} do
   test "store values by key", fullMap do
-    %{bucket: bucket} = fullMap |> IO.inspect()
+    %{bucket: bucket} = fullMap
+    # |> IO.inspect()
     assert KV.Bucket.get(bucket, "milk") == nil
 
     KV.Bucket.put(bucket, "milk", 3)

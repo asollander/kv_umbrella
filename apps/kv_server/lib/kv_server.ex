@@ -32,8 +32,11 @@ defmodule KVServer do
   defp serve(socket) do
     msg =
       with {:ok, data} <- read_line(socket),
-           {:ok, command} <- KVServer.Command.parse(IO.inspect(data, label: "data")),
-           do: KVServer.Command.run(IO.inspect(command, label: "command"))
+           {:ok, command} <- KVServer.Command.parse(data),
+           do: KVServer.Command.run(command)
+          #  with {:ok, data} <- read_line(socket),
+          #  {:ok, command} <- KVServer.Command.parse(IO.inspect(data, label: "data")),
+          #  do: KVServer.Command.run(IO.inspect(command, label: "command"))
 
     write_line(socket, msg)
     # Loop again
