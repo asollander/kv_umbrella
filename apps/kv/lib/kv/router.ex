@@ -32,6 +32,6 @@ defmodule KV.Router do
   """
   def table do
     # Replace computer-name with your local machine name
-    [{?a..?m, :"foo@computer-name"}, {?n..?z, :"bar@computer-name"}]
+    [{?a..?m, :"foo@anders-ubu-ac"}, {?n..?z, :"bar@anders-ubu-ac"}]
   end
 end
