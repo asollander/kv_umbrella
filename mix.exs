@@ -17,6 +17,18 @@ defmodule KvUmbrella.MixProject do
         main: "KV.Bucket",
         # logo: "path/to/logo.png",
         extras: ["README.md"]
+      ],
+      releases: [
+        foo: [
+          version: "0.0.1",
+          applications: [kv_server: :permanent, kv: :permanent],
+          cookie: "weknoweachother"
+        ],
+        bar: [
+          version: "0.0.1",
+          applications: [kv: :permanent],
+          cookie: "weknoweachother"
+        ]
       ]
     ]
   end
