@@ -14,7 +14,8 @@ defmodule KVServerTest do
     %{socket: socket}
   end
 
-  @tag :distributed
+  # Remove tag after we have a configuration table in config/runtime.exe
+  # @tag :distributed
   test "server interaction", %{socket: socket} do
     assert send_and_recv(socket, "UNKNOWN shopping\r\n") ==
              "UNKNOWN COMMAND\r\n"
