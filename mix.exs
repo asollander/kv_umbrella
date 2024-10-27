@@ -18,6 +18,7 @@ defmodule KvUmbrella.MixProject do
         # logo: "path/to/logo.png",
         extras: ["README.md"]
       ],
+      # default_release: :foo,
       releases: [
         foo: [
           version: "0.0.1",
