@@ -1,6 +1,6 @@
-![example workflow](https://github.com/github/docs/actions/workflows/elixir.yml/badge.svg)
+![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 
-
+![Elixir workflow](https://github.com/asollander/kv_umbrella/actions/workflows/elixir.yml/badge.svg)
 # KVUmbrella
 
 This is the repo for me following along the
